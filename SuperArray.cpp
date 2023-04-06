@@ -37,7 +37,11 @@
 	}
       
         void SuperArray::insert(int index,int value)
-        {
+        {       
+		if(m_size == m_capacity)
+		{
+			void pushBack();
+		}
 	        
                 if(index < 0 || index >= m_size)
       	        {
