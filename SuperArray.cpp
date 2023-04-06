@@ -16,10 +16,6 @@
 		return m_size;
 	}
 
-	int SuperArray::getCapacity()
-	{
-		return m_capacity;
-	}
 	
 	SuperArray::~SuperArray()
         {
