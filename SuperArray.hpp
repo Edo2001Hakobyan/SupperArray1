@@ -14,8 +14,6 @@ class SuperArray
 	//Function that return array size
 	int getSize();
 
-	//Function that return capacity
-        int getCapacity();
 	
 	//Function that check if array size is equal in capacity,capacity multiply two times 
 	void pushBack(int value);
