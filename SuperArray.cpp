@@ -21,25 +21,30 @@
 		return m_capacity;
 	}
 	
-	void SuperArray::pushBack(int value)
+	void SuperArray::changeCapacity()
 	{
-		if(m_size == m_capacity)
-		{       
-			//If the array is full,double the capacity
-			m_capacity *= 2;
-			int *new_data = new int[m_capacity];
-			std::copy(m_data,m_data + m_size,new_data);
-			delete [] m_data;
-			m_data = new_data;
-		}
-		m_data[m_size++] = value;
+		m_capacity *= 2;
+		int *new_data = new int[m_capacity];
+		std::copy(m_data,m_data + m_size,new_data);
+		delete [] m_data;
+		m_data = new_data;
 	}
+
+        void SuperArray::pushBack(int value)
+        {
+		if(m_size == m_capacity)
+		{
+			changeCapacity();
+		}
+		m_data[m_size] = value;
+		m_size++;
+        }
       
         void SuperArray::insert(int index,int value)
         {       
 	       	if(m_size == m_capacity)
 		{
-		    void pushBack();
+		    changeCapacity();
 		}	
 	        
                 if(index < 0 || index >= m_size)
@@ -58,10 +63,8 @@
 		//Insert the new element
 		m_data[index] = value;
 		m_size++;
-		
-		
+	}
 
-        }
 
         void SuperArray::remove(int index)
         {      
